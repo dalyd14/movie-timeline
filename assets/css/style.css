@@ -32,7 +32,7 @@
   }
   
   .timeline a {
-    color: #313131;
+    color: #9e0909;
     font-weight: bold;
     transition: all 0.25s ease-in;
   }
@@ -79,7 +79,7 @@
   }
   
   .timeline .timeline-item .timeline-content p {
-    color: #e4d725;
+    color: #9e0909;
   }
   
   .timeline .timeline-item .timeline-content p {
