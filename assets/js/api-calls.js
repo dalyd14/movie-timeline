@@ -84,6 +84,7 @@ var singleOmdbApiCall = function(title) {
         if(response.ok){
             response.json().then(function(data){
                 console.log(data)
+                $("#movie-poster").attr("src", data.Poster)
             })
         }
     }) 
