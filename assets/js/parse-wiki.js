@@ -43,6 +43,7 @@ var getTop10Movies = function(year) {
                                         }
                                     })
                                     var sortedMovies = sortByDate(movieArr)
+                                    console.log(sortedMovies)
                                 })
                             })
                         })
@@ -50,12 +51,6 @@ var getTop10Movies = function(year) {
                 })
             })
         }
-    })
-}
-
-var processJson = function(prom) {
-    prom.then(data => {
-        console.log(data)
     })
 }
 
