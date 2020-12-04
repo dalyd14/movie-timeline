@@ -80,7 +80,7 @@ var getDecadeTopMovies = function(decade) {
 }
 
 var singleOmdbApiCall = function(title) {
-    fetch("http://www.omdbapi.com/?t=" + title.trim().split(' ').join('+') + "&apikey=f92c60e5").then(function(response){
+    fetch("https://www.omdbapi.com/?t=" + title.trim().split(' ').join('+') + "&apikey=f92c60e5").then(function(response){
         if(response.ok){
             response.json().then(function(data){
                 console.log(data)
@@ -92,7 +92,7 @@ var singleOmdbApiCall = function(title) {
 
 var omdbApiCalls = function(movies) {
     var movieFetches = movies.map((movie) => {
-        return fetch("http://www.omdbapi.com/?t=" + movie.movieTitle.split(' ').join('+') + "&y=" + movie.movieYear + "&apikey=f92c60e5")
+        return fetch("https://www.omdbapi.com/?t=" + movie.movieTitle.split(' ').join('+') + "&y=" + movie.movieYear + "&apikey=f92c60e5")
     })
     Promise.all(movieFetches).then((movies) => {
         var moviesArray = movies.map((movie) => {
