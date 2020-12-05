@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: unset;
+    color: unset;
+}
+
+.d-none {
+    display: none;
+}
+
+.home-menu {
+    background-color: white;
+}
+
+#tm-logo {
+    height: 45px;
+}
+
+#year-search {
+    display: flex;
+    justify-content: center;
+}
+#year-search input, #year-search button {
+    display: inline-block;
+    margin: 0;
+}
+
+.decade {
+    width: calc(100% - 20px);
+    height: 80px;
+    margin: 10px 10px 0 10px;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+
+    background-color: blue;
+    color: white;
+}
+
+#movies-display {
+    padding: 10px;
+}
+#movies-display .pure-g {
+    padding: 5px 0;
+    border-bottom: 1px solid lightblue;
+}
+.list-movie-poster {
+    height: 100px;
+}
