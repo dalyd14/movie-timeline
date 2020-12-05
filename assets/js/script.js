@@ -48,7 +48,19 @@ var populateMovies = function(movies, decade, year) {
             </div>`
         )
     )
+    var currentMonth = ""
     movies.forEach(movie => {
+        var movieMonth = movie.releasedDate.format("MMMM, YYYY")
+        if (currentMonth != movieMonth) {
+            currentMonth = movieMonth
+            moviesDisplay.append(
+                $("<div>").addClass("display-header pure-g").html(
+                    `<div class="pure-u-11-12">
+                        <h4>` + currentMonth + `</h4>
+                    </div>`
+                )
+            )
+        }
         var movieContainer = $("<div>").addClass("pure-g").html(
             `<div class="pure-u-10-24">
                 <img src="` + movie.Poster + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">
