@@ -5,16 +5,17 @@ a {
     text-decoration: unset;
     color: unset;
 }
+
+.d-none {
+    display: none;
+}
+
 .home-menu {
     background-color: white;
 }
 
 #tm-logo {
     height: 45px;
-}
-
-.pure-menu-item {
-    padding: 25px;
 }
 
 #year-search {
@@ -36,4 +37,15 @@ a {
 
     background-color: blue;
     color: white;
+}
+
+#movies-display {
+    padding: 10px;
+}
+#movies-display .pure-g {
+    padding: 5px 0;
+    border-bottom: 1px solid lightblue;
+}
+.list-movie-poster {
+    height: 100px;
 }
