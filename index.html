@@ -14,99 +14,50 @@
 <body>
   <!-- A lot of stuff on this HTML/ CSS is only for the sake of example/ reference as per initial mock up -
     (Change whatever you like) -->
-  <header>
-    <!-- <img id="logo" ... -->
-    <button id="timeline-btn" type="submit">Film</button>
-    <button id="timeline-btn" type="submit">Timeline</button>
-    <label for="contact-message">Search By Year:</label>
-    <textarea id="contact-message" placeholder="e.x. 1992"></textarea>
-    <button id="timeline-btn" type="submit">Submit</button>
-
-  </header>
-  <section id="home-page" class="flex-container"> <!-- We were considering displaying movie info next to timeline,
-  only reason why I set some classes to flex (did not actually use any flex for examples) -->
-    <!-- Decade Buttons -->
-    <div id="decade-btn-list" class="flex-container">
-      <!-- divs around buttons necessary? -->
-      <div id="twenty-tens-div">
-        <button id="twenty-tens-btn" type="submit">2010's</button>
-      </div>
-      <div id="twenty-hundreds-div">
-        <button id="twenty-hundreds-btn" type="submit">2000's</button>
-      </div>
-      <div id="nineties-div">
-        <button id="nineties-btn" type="submit">1990's</button>
-      </div>
-      <div id="eighties-div">
-        <button id="eighties-btn" type="submit">1980's</button>
-      </div>
-      <div class="seventies-div">
-        <button id="seventies-btn" type="submit">1970's</button>
-      </div>
-    </div>
-    <div id="movie-info" class="flex-container"> <!-- div could show up next to timeline, only reason why I set class as flex -->
-    <span id="year-made"></span>
-    <div id="movie"></div>
-    <!-- Create ordered list of info for film (ex. genre, rating, director, etc..) Or does api display info?-->
-  <ul>
-    <h4 id="heading-genre">Genre:</h4>
-    <li id="genre"></li>
-    <h4 id="heading-rating">Rated:</h4>
-    <li id="rating"></li>
-    <h4 id="heading-release-date">Released On:</h4>
-    <li id="released"></li>
-    <h4 id="heading-director">Directed By:</h4>
-    <li id="director"></li>
-  </ul>
-  
-  
-  
+  <div class="home-menu pure-menu pure-menu-horizontal">
+    <a class="pure-menu-heading" href="">
+      <img src="./assets/images/logo.png" alt="Timeless Movies Logo" id="tm-logo">
+    </a>
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item pure-menu-selected">Timeline</li>
+      <li class="pure-menu-item">Search</li>
+    </ul>      
   </div>
-  </section>
-  <section id="by-month">
-    <span id="set-year"></span>
-    <!-- Should months be hardcoded? -->
-    <div id="month">January of <span id="year"></span></div> <!-- divs or li's? -->
-     <!-- Done properly for JavaScript?  -->
-    <div id="movie-content">
-      <button id="movie-btn" type="submit"></button>
-    </div>
-    <!-- ...? -->
-    <div id="month">February of <span id=year></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">March of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">April of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">May of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">June of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">July of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">August of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">September of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">October of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">November of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-    <div id="month">December of <span id="year"></span></div>
-    <button id="movie-btn" type="submit"></button>
-  </section>
-  <section id="movie-searched-page">
-    <!-- fetch movie poster img -->
-    <div id="movie-info1" class="flex-container"></div>
-    <div id="movie-info2" class="flex-container"></div>
-  </section>
+  <!-- Form for searching a specific year of film -->
+  <form class="pure-form" id="year-search">
+    <fieldset>
+        <input type="text" class="pure-input-rounded" placeholder="Search for a Year of Film" />
+        <button type="submit" class="pure-button pure-button-primary">Search</button>
+    </fieldset>
+  </form>
+  <!-- Form for clicking decade buttons -->
+  <form class="pure-form pure-form-stacked" id="decade-btns">
+    <fieldset>
+      <div class="decade" id="2010">
+        2010's
+      </div>
+      <div class="decade" id="2000">
+        2000's
+      </div>
+      <div class="decade" id="1990">
+        1990's
+      </div>
+      <div class="decade" id="1980">
+        1980's
+      </div>
+      <div class="decade" id="1970">
+        1970's
+      </div>
+    </fieldset>
+  </form>
+
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
     integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
     crossorigin="anonymous"></script>
-<script src="./assets/js/api-calls.js"></script>
+  <script src="./assets/js/api-calls.js"></script>
 </body>
-
 </html>
