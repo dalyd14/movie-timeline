@@ -3,7 +3,6 @@ var getYearTopMovies = function(year) {
     fetch(sectionsUrl).then(function(response){
         if(response.ok) {
             response.json().then(function(sections){
-                console.log(sections)
                 if("error" in sections) {
                     console.log({
                         Response: "False",
