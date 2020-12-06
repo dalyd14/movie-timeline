@@ -1,29 +1,57 @@
-
-.splash-container {
-  margin-top: -2.75%;
-  text-align: center;
-  background-color: silver;
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: unset;
+    color: unset;
 }
 
-.button-example {
-   background: rgb(32, 32, 32);
-   margin: 1em auto;
-   border-top: 50px solid rgb(0, 0, 0);
-   border-bottom: 50px solid rgb(0, 0, 0);
-   border-right: 50px solid rgb(0, 0, 0);
-   border-left: 50px solid rgb(0, 0, 0);			
-   font-family: Consolas, 'Liberation Mono', Courier, monospace;
-   text-align: center;	
+.d-none {
+    display: none;
 }
 
-.button-2015,
-.button-2016,
-.button-2017,
-.button-2018,
-.button-2019,
-.button-2020 {
-  color: grey;
-  border-radius: 4px;
-  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+.home-menu {
+    background-color: white;
 }
 
+#tm-logo {
+    height: 45px;
+}
+
+#year-search {
+    display: flex;
+    justify-content: center;
+}
+#year-search input, #year-search button {
+    display: inline-block;
+    margin: 0;
+    background-color: white;
+    color: white;
+}
+
+#year-search button {
+    background-color: grey;
+    color: black
+}
+
+.decade {
+    width: calc(75% - 20px);
+    height: 80px;
+    margin: 10px 10px 0 10px;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    color: black;
+}
+
+#movies-display {
+    padding: 10px;
+}
+#movies-display .pure-g {
+    padding: 5px 0;
+    border-bottom: 1px solid lightblue;
+}
+.list-movie-poster {
+    height: 100px;
+}
