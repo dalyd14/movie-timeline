@@ -49,3 +49,41 @@ a {
 .list-movie-poster {
     height: 100px;
 }
+
+.flex-container {
+    display: flex;
+    margin-top: 3%;
+}
+
+#movie-poster-display {
+    background-color: lightgrey;
+    width: 35%;
+    height: 300px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    flex: 1;
+}
+
+#info-box-one {
+    background-color: lightgrey;
+    width: 60%;
+    height: 300px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 3%;
+    text-align: center;
+}
+
+#info-box-bottom {
+    background-color: lightgrey;
+    width: 80%;
+    height: 300px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 3%;
+    margin-left: 10%;
+    text-align: center;
+}
