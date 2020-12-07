@@ -1,156 +1,51 @@
-body {
-    margin: auto;
-    width: max-content;
-    padding: 75px;
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: unset;
+    color: unset;
 }
 
-header {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+.d-none {
+    display: none;
+}
+
+.home-menu {
+    background-color: white;
+}
+
+#tm-logo {
+    height: 45px;
+}
+
+#year-search {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
+}
+#year-search input, #year-search button {
+    display: inline-block;
+    margin: 0;
 }
 
-nav {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: auto;
-    width: max-content;
-    border: 2px solid black;
-}
+.decade {
+    width: calc(100% - 20px);
+    height: 80px;
+    margin: 10px 10px 0 10px;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
 
-#twenty-tens-btn {
     background-color: blue;
-    border: 1px solid #fff;
-    border-radius: 10px;
     color: white;
-    padding: 30px 300px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 26px;
-    margin: 4px 2px;
-    cursor: pointer;
 }
 
-#twenty-hundreds-btn {
-    background-color: blue;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    color: white;
-    padding: 30px 300px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 26px;
-    margin: 4px 2px;
-    cursor: pointer;
-    }
-
-
-#nineties-btn {
-    background-color: blue;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    color: white;
-    padding: 30px 300px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 26px;
-    margin: 4px 2px;
-    cursor: pointer;
+#movies-display {
+    padding: 10px;
 }
-
-#eighties-btn {
-    background-color: blue;
-    border: .25px solid #fff;
-    border-radius: 10px;
-    color: white;
-    padding: 30px 300px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 26px;
-    margin: 4px 2px;
-    cursor: pointer;
+#movies-display .pure-g {
+    padding: 5px 0;
+    border-bottom: 1px solid lightblue;
 }
-
-#seventies-btn {
-    background-color: blue;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    color: white;
-    padding: 30px 300px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 26px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-#movie-btn {
-    background-color: blue;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    color: white;
-    padding: 30px 300px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 26px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-#movie-info {
-    background-color: aquamarine;
-    border: 2px solid black;
-    border-radius: 10px;
-    color: black;
-    padding: 30px 100px;
-    text-align: left;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-#contact-message {
-    background-color: aquamarine;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    color: black;
-    padding: 30px 300px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-#timeline-btn {
-    background-color: orangered;
-    border: .25px solid #fff;
-    border-radius: 10px;
-    color: white;
-    padding: 10px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-#month {
-    font-size: 28px;
-    color: orangered;
+.list-movie-poster {
+    height: 100px;
 }
