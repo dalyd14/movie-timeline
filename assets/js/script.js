@@ -116,4 +116,3 @@ $( "#movie-search" ).submit(function( event ) {
     asyncCallforMovie()
     $(this).find("input").val("")         
 });
-
