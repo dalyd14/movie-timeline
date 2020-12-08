@@ -43,9 +43,9 @@ var populateMovies = function(movies, decade, year) {
             `<div class="pure-u-11-12">
                 <h2>` + title + `</h2>
             </div>
-            <div class="exit-btn pure-u-1-12">
-                <h2>X</h2>
-            </div>`
+            <button class="exit-btn pure-button"><i
+            class="fa fa-close"></i>Close
+            </button>`
         )
     )
     var currentMonth = ""
