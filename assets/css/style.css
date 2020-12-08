@@ -13,7 +13,6 @@ a {
 .home-menu {
     background-color: grey;
     border-radius: 50%;
-   
 }
 
 #tm-logo {
@@ -27,8 +26,44 @@ a {
 #year-search input, #year-search button {
     display: inline-block;
     margin: 0;
-    background-color: white;
-    color: white;
+}
+
+.flex-container {
+    display: flex;
+    margin-top: 3%;
+}
+
+#movie-poster-display {
+    background-color: lightgrey;
+    width: 35%;
+    height: 300px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    flex: 1;
+}
+
+#info-box-one {
+    background-color: lightgrey;
+    width: 60%;
+    height: 300px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 3%;
+    text-align: center;
+}
+
+#info-box-bottom {
+    background-color: lightgrey;
+    width: 80%;
+    height: 300px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 3%;
+    margin-left: 10%;
+    text-align: center;
 }
 
 #year-search button {
@@ -42,8 +77,6 @@ a {
     transform: translateY(-2px);
     box-shadow: 0 10px 5px rgba(148, 7, 7, 0.692);  
 }
-
-
 
 body {
     background-color: rgb(110, 140, 184); 
@@ -64,16 +97,6 @@ body {
     background-color: grey;
     color: white
 }
-
-.decade-2010 {
-background-color: red;
-color: green;
-}
-
-
-
-
-
 
 #movies-display {
     padding: 10px;

@@ -90,3 +90,29 @@ var checkIfYear = function(year) {
         return [false, "Please enter a valid year like 2016"]
     }
 }
+var populateMovieInfo = function(movieInfo) {
+    console.log(movieInfo)
+    $("#movie-poster").attr("src", movieInfo.Poster)
+    $("#movie-title").text(movieInfo.Title)
+    $("#movie-genre").text(movieInfo.Genre)
+    $("#movie-rated").text(movieInfo.Rated)
+    $("#movie-release").text(movieInfo.Released)
+    $("#movie-director").text(movieInfo.Director)
+    $("#movie-actors").text(movieInfo.Actors)
+    $("#movie-plot").text(movieInfo.Plot)
+    $("#movie-awards").text(movieInfo.Awards)
+    $("#movie-time").text(movieInfo.Runtime)
+}
+
+
+$( "#movie-search" ).submit(function( event ) {
+    event.preventDefault();
+    var searchTerm = $(this).find("input").val()
+    
+    async function asyncCallforMovie() {
+        var results = await singleOmdbApiCall(searchTerm)
+        populateMovieInfo(results) 
+    }
+    asyncCallforMovie()
+    $(this).find("input").val("")         
+});

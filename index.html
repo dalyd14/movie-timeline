@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- (Take note) Divs currently are not responsive to minimizing! -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (Take note) Divs currently are not responsive to minimizing! -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.css"
     integrity="sha512-FEioxlObRXIskNAQ1/L0byx0SEkfAY+5fO024p9kGEfUQnACGRfCG5Af4bp/7sPNSzKbMtvmcJOWZC7fPX1/FA=="
     crossorigin="anonymous" />
@@ -12,6 +13,7 @@
 </head>
 
 <body>
+
   <!-- A lot of stuff on this HTML/ CSS is only for the sake of example/ reference as per initial mock up -
     (Change whatever you like) -->
   <div class="home-menu pure-menu pure-menu-horizontal">
@@ -23,15 +25,15 @@
         <a href="" class="pure-menu-link">Timeline</a>
       </li>
       <li class="pure-menu-item">
-        <a href="" class="pure-menu-link">Search</a>
+        <a href="movie.html" class="pure-menu-link">Movie Search</a>
       </li>
-    </ul>      
+    </ul>
   </div>
   <!-- Form for searching a specific year of film -->
   <form class="pure-form" id="year-search">
     <fieldset>
-        <input type="number" class="pure-input-rounded" placeholder="Search for a Year of Film" />
-        <button type="submit" class="pure-button pure-button-primary">Search</button>
+      <input type="number" class="pure-input-rounded" placeholder="Search for a Year of Film" />
+      <button type="submit" class="pure-button pure-button-primary">Search</button>
     </fieldset>
   </form>
   <!-- Form for clicking decade buttons -->
@@ -53,8 +55,7 @@
     </div>
   </div>
 
-  <section id="movies-display">
-  </section>
+  <section id="movies-display"></section>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -62,7 +63,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
     integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
     crossorigin="anonymous"></script>
-  
   <script src="./assets/js/api-calls.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>

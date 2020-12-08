@@ -104,26 +104,28 @@ var getDecadeTopMovies = function(decade) {
         })
     })
 }
-    
-var singleOmdbApiCall = function(title) {
-    if(typeof title === "string") {
-        fetch("https://www.omdbapi.com/?t=" + title.trim().split(' ').join('+') + "&apikey=f92c60e5").then(function(response){
-            if(response.ok){
-                response.json().then(function(data){
-                    console.log(data)
-                    $("#movie-poster").attr("src", data.Poster)
-                })
-            }
-        })         
-    } else {
-        console.log({
-            Response: "False",
-            Error: "Search term was not a string!"
-        })
-    }
+
+var singleOmdbApiCall = function (title) {
+    return new Promise(resolve => {
+        if (typeof title === "string") {
+            fetch("https://www.omdbapi.com/?t=" + title.trim().split(' ').join('+') + "&apikey=f92c60e5").then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (data) {
+                        resolve(data)
+
+                    })
+                }
+            })
+        } else {
+            resolve({
+                Response: "False",
+                Error: "Search term was not a string!"
+            })
+        }
+    })
 }
 
-var omdbApiCalls = function(movies) {
+var omdbApiCalls = function (movies) {
     return new Promise(resolve => {
         var movieFetches = movies.map((movie) => {
             return fetch("https://www.omdbapi.com/?t=" + movie.movieTitle.split(' ').join('+') + "&y=" + movie.movieYear + "&apikey=f92c60e5")
