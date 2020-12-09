@@ -2,39 +2,40 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- (Take note) Divs currently are not responsive to minimizing! -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.css"
-        integrity="sha512-FEioxlObRXIskNAQ1/L0byx0SEkfAY+5fO024p9kGEfUQnACGRfCG5Af4bp/7sPNSzKbMtvmcJOWZC7fPX1/FA=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Movie Timeline</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (Take note) Divs currently are not responsive to minimizing! -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.css"
+    integrity="sha512-FEioxlObRXIskNAQ1/L0byx0SEkfAY+5fO024p9kGEfUQnACGRfCG5Af4bp/7sPNSzKbMtvmcJOWZC7fPX1/FA=="
+    crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Movie Timeline</title>
 </head>
 
 <body>
 
     <!-- A lot of stuff on this HTML/ CSS is only for the sake of example/ reference as per initial mock up -
-    (Change whatever you like) -->
+        (Change whatever you like) -->
     <div class="home-menu pure-menu pure-menu-horizontal">
         <a class="pure-menu-heading" href="">
-          <img src="./assets/images/logo.png" alt="Timeless Movies Logo" id="tm-logo">
+        <img src="./assets/images/logo.png" alt="Timeless Movies Logo" id="tm-logo">
         </a>
         <ul class="pure-menu-list">
-          <li class="pure-menu-item">
+        <li class="pure-menu-item pure-menu-selected">
             <a href="index.html" class="pure-menu-link">Timeline</a>
-          </li>
-          <li class="pure-menu-item pure-menu-selected">
-            <a href="" class="pure-menu-link">Movie Search</a>
-          </li>
+        </li>
         </ul>
-      </div>
+    </div>  
+
     <!-- Form for searching a specific year of film -->
     <form class="pure-form" id="movie-search">
-        <fieldset>
-            <input type="text" class="pure-input-rounded" placeholder="Place Movie Title Here" />
-            <button type="submit" class="pure-button pure-button-primary">Search</button>
-        </fieldset>
+        <input type="text" class="pure-input-rounded" placeholder="Search for Movie Title" />
+        <button type="submit" class="search-btn">
+            <span class="material-icons">
+                search
+            </span>
+        </button>
     </form>
 
 

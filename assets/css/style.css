@@ -13,6 +13,11 @@ a {
     display: none !important;
 }
 
+.pure-menu-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 #tm-logo {
     height: 45px;
 }
@@ -25,15 +30,19 @@ a {
     width: 80%;
 }
 
-#year-search {
+.pure-form {
     display: flex;
     justify-content: center;
 }
-#year-search input {
+.pure-form input {
     width: 70%;
 }
+.search-btn {
+    color: #A2A1A1;
+    border: none;
+}
 
-#year-search input, #year-search button {
+.pure-form input, .search-btn {
     display: inline-block;
     margin: 0;
 }
