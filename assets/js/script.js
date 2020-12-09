@@ -44,7 +44,9 @@ var populateMovies = function(movies, decade, year) {
                 <h2>` + title + `</h2>
             </div>
             <div class="exit-btn pure-u-1-12">
-                <h2>X</h2>
+                <span class="material-icons">
+                    close
+                </span>
             </div>`
         )
     )
