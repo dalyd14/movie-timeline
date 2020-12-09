@@ -1,3 +1,8 @@
+var currentYear = parseInt(moment().format("YYYY"))
+if(currentYear>=2020) {
+    $("#year-search").find("input").attr("max", currentYear)
+}
+
 $("#decade-btns").on("click", ".decade", function(){
     var decade = $(this).attr("id")
     async function asyncCallforDecades() {
@@ -27,7 +32,6 @@ $("#movies-display").on("click", ".exit-btn", function(){
     $("#decade-btns").removeClass("d-none")
     $("#movies-display").addClass("d-none")
 })
-
 
 var populateMovies = function(movies, decade, year) {
     var moviesDisplay = $("#movies-display")
@@ -63,7 +67,7 @@ var populateMovies = function(movies, decade, year) {
                 )
             )
         }
-        var movieContainer = $("<div>").addClass("pure-g").html(
+        var movieContainer = $("<div>").addClass("pure-g movie-list-item").attr("id", movie.imdbID).html(
             `<div class="pure-u-10-24">
                 <img src="` + movie.Poster + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">
             </div>
@@ -71,7 +75,9 @@ var populateMovies = function(movies, decade, year) {
                 <h3>` + movie.Title + `</h3>
             </div>
             <div class="pure-u-2-24">
-                <h4>></h4>
+                <span class="material-icons">
+                    arrow_forward_ios
+                </span>
             </div>`
         )
         moviesDisplay.append(movieContainer)
@@ -79,10 +85,14 @@ var populateMovies = function(movies, decade, year) {
     $("#decade-btns").addClass("d-none")
 }
 
+$("#movies-display").on("click", ".movie-list-item", function(){
+    window.location = "./movie.html?" + $(this).attr("id")
+})
+
+// function for checking if the input was a valid year
 var checkIfYear = function(year) {
     if(typeof year === "string" & year.length === 4) {
         var yearNum = parseInt(year)
-        var currentYear = parseInt(moment().format("YYYY"))
         if (yearNum >= 1914 & yearNum <= currentYear) {
             return [true, "Success"]
         } else {
@@ -92,6 +102,8 @@ var checkIfYear = function(year) {
         return [false, "Please enter a valid year like 2016"]
     }
 }
+
+// Search function for movie.html (single movie search feature)
 var populateMovieInfo = function(movieInfo) {
     console.log(movieInfo)
     $("#movie-poster").attr("src", movieInfo.Poster)
@@ -105,16 +117,25 @@ var populateMovieInfo = function(movieInfo) {
     $("#movie-awards").text(movieInfo.Awards)
     $("#movie-time").text(movieInfo.Runtime)
 }
-
-
 $( "#movie-search" ).submit(function( event ) {
     event.preventDefault();
     var searchTerm = $(this).find("input").val()
     
     async function asyncCallforMovie() {
-        var results = await singleOmdbApiCall(searchTerm)
+        var results = await singleOmdbApiCall(searchTerm, false)
         populateMovieInfo(results) 
     }
     asyncCallforMovie()
     $(this).find("input").val("")         
 });
+
+if(document.URL.indexOf("movie.html") >= 0){ 
+    var imdbID = window.location.search.substring(1)
+    if(imdbID) {
+        async function asyncCallforMovie() {
+            var results = await singleOmdbApiCall(imdbID, true)
+            populateMovieInfo(results) 
+        }
+        asyncCallforMovie()
+    }
+}
