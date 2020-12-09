@@ -56,6 +56,7 @@ var populateMovies = function(movies, decade, year) {
     )
     var currentMonth = ""
     movies.forEach(movie => {
+        console.log(movie)
         var movieMonth = movie.releasedDate.format("MMMM, YYYY")
         if (currentMonth != movieMonth) {
             currentMonth = movieMonth
@@ -69,7 +70,7 @@ var populateMovies = function(movies, decade, year) {
         }
         var movieContainer = $("<div>").addClass("pure-g movie-list-item").attr("id", movie.imdbID).html(
             `<div class="pure-u-10-24">
-                <img src="` + movie.Poster + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">
+                <img src="` + ((movie.Poster ==="N/A") ? "./assets/images/default.png" : movie.Poster) + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">
             </div>
             <div class="pure-u-12-24">
                 <h3>` + movie.Title + `</h3>
