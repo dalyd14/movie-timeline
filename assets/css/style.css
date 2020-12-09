@@ -27,7 +27,9 @@ a {
 
     background-color: #FFE699;
     border-radius: 5px;
-    color: black;
+    color: #696969;
+    font-weight: bold;
+    font-style: italic;
 }
 .pure-menu-item:hover {
     background-color: #F4B183;
@@ -97,7 +99,10 @@ a {
     justify-content: center;
     align-items: center;
 
-    color: white
+    color: white;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 40px;
 }
 
 [id="1970"] {
@@ -158,4 +163,66 @@ a {
 }
 #default-img img {
     width: 80%;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .website-title img {
+        width: 75%;
+    }
+    .list-movie-poster {
+        width: 125px;
+    }
+    .decade {
+        width: 75%;
+        height: 170px;
+    }
+}
+@media screen and (min-width: 980px) {
+    body {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    .website-title img {
+        width: 65%;
+    }
+    .list-movie-poster {
+        width: 150px;
+    }
+    .decade {
+        width: 65%;
+        height: 190px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    body {
+        padding-left: 17%;
+        padding-right: 17%;
+    }
+    .website-title img {
+        width: 60%;
+    }
+    .list-movie-poster {
+        width: 170px;
+    }
+    .decade {
+        width: 60%;
+        height: 210px;
+    }
+}
+@media screen and (min-width: 1500px) {
+    body {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    .list-movie-poster {
+        width: 200px;
+    }
+    .decade {
+        width: 55%;
+        height: 250px;
+    }
 }
