@@ -98,7 +98,7 @@ var populateMovies = function(movies, decade, year) {
 }
 
 $("#movies-display").on("click", ".movie-list-item", function(){
-    window.location = "./movie.html?" + $(this).attr("id")
+    window.location = "./movie.html?i=" + $(this).attr("id")
 })
 
 // function for checking if the input was a valid year
@@ -131,11 +131,13 @@ var populateMovieInfo = function(movieInfo) {
     $("#movie-time").text(movieInfo.Runtime)
     
     $("#default-img").addClass("d-none")
+    $("#error-img").addClass("d-none")
     $("#movie-display").removeClass("d-none")
 }
 var populateError = function(errorInfo) {
     console.log(errorInfo)    
     $("#default-img").removeClass("d-none")
+    $("#error-img").removeClass("d-none")
     $("#movie-display").addClass("d-none")
 }
 
@@ -144,28 +146,20 @@ $( "#movie-search" ).submit(function( event ) {
     
     $("#movie-display").addClass("d-none")
     $("#default-img").removeClass("d-none")
+    $("#error-img").addClass("d-none")
 
     var searchTerm = $(this).find("input").val()
-    
-    async function asyncCallforMovie() {
-        var results = await singleOmdbApiCall(searchTerm, false)
-        if (results.Response === "True") {
-            populateMovieInfo(results) 
-        } else {
-            populateError(results)
-        }
-    }
-    asyncCallforMovie()
-    $(this).find("input").val("")         
+    window.location = "./movie.html?t=" + searchTerm.trim().split(" ").join("+")     
 });
 
 if(document.URL.indexOf("movie.html") >= 0){ 
     $("#movie-display").addClass("d-none")
     $("#default-img").removeClass("d-none")
-    var imdbID = window.location.search.substring(1)
-    if(imdbID) {
+    $("#error-img").addClass("d-none")
+    var searchTerm = window.location.search.substring(1)
+    if(searchTerm) {
         async function asyncCallforMovie() {
-            var results = await singleOmdbApiCall(imdbID, true)
+            var results = await singleOmdbApiCall(searchTerm)
             if (results.Response === "True") {
                 populateMovieInfo(results) 
             } else {

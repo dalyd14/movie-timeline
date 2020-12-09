@@ -105,26 +105,16 @@ var getDecadeTopMovies = function(decade) {
     })
 }
 
-var singleOmdbApiCall = function (title, imdb) {
+var singleOmdbApiCall = function (title) {
     return new Promise(resolve => {
         if (typeof title === "string") {
-            if(imdb) {
-                fetch("https://www.omdbapi.com/?i=" + title.trim() + "&apikey=f92c60e5").then(function (response) {
-                    if (response.ok) {
-                        response.json().then(function (data) {
-                            resolve(data)
-                        })
-                    }
-                })  
-            } else {
-                fetch("https://www.omdbapi.com/?t=" + title.trim().split(' ').join('+') + "&apikey=f92c60e5").then(function (response) {
-                    if (response.ok) {
-                        response.json().then(function (data) {
-                            resolve(data)
-                        })
-                    }
-                })                
-            }
+            fetch("https://www.omdbapi.com/?" + title.trim() + "&apikey=f92c60e5").then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (data) {
+                        resolve(data)
+                    })
+                }
+            })  
         } else {
             resolve({
                 Response: "False",

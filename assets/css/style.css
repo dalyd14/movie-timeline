@@ -223,7 +223,11 @@ a {
     margin-top: 100px;
     text-align: center;
 }
-#default-img img {
+#error-img {
+    margin: 0;
+    text-align: center;
+}
+#default-img img, #error-img img {
     width: 80%;
 }
 
