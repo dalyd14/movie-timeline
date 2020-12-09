@@ -13,6 +13,11 @@ a {
     display: none !important;
 }
 
+.pure-menu-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 #tm-logo {
     height: 45px;
 }
@@ -25,55 +30,23 @@ a {
     width: 80%;
 }
 
-#year-search {
+.pure-form {
     display: flex;
     justify-content: center;
 }
-#year-search input {
+.pure-form input {
     width: 70%;
 }
+.search-btn {
+    cursor: pointer;
 
-#year-search input, #year-search button {
+    color: #A2A1A1;
+    border: none;
+}
+
+.pure-form input, .search-btn {
     display: inline-block;
-    margin: 0;
-}
-
-.flex-container {
-    display: flex;
-    margin-top: 3%;
-}
-
-#movie-poster-display {
-    background-color: lightgrey;
-    width: 35%;
-    height: 300px;
-    border: 1px solid blue;
-    border-radius: 20px;
-    padding: 20px;
-    flex: 1;
-}
-
-#info-box-one {
-    background-color: lightgrey;
-    width: 60%;
-    height: 300px;
-    border: 1px solid blue;
-    border-radius: 20px;
-    padding: 20px;
-    margin-left: 3%;
-    text-align: center;
-}
-
-#info-box-bottom {
-    background-color: lightgrey;
-    width: 80%;
-    height: 300px;
-    border: 1px solid blue;
-    border-radius: 20px;
-    padding: 20px;
-    margin-top: 3%;
-    margin-left: 10%;
-    text-align: center;
+    margin: 0 !important;
 }
 
 #decade-btns {
@@ -83,6 +56,8 @@ a {
 }
 
 .decade {
+    cursor: pointer;
+
     border-radius: 5px;
     width: 80%;
     height: 150px;
@@ -122,13 +97,28 @@ a {
     background-size: cover;
 }
 
-#movies-display {
-    padding: 10px;
+.display-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-#movies-display .pure-g {
-    padding: 5px 0;
-    border-bottom: 1px solid lightblue;
+.exit-btn {
+    cursor: pointer;
 }
+
 .list-movie-poster {
-    height: 100px;
+    width: 100px;
+}
+.single-movie-poster {
+    width: 100%;
+}
+
+.movie-list-item {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+}
+.movie-list-item span {
+    margin-left: auto;
 }

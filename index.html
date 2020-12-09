@@ -10,22 +10,19 @@
     crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="./assets/images/logo.png"/>
   <title>Movie Timeline</title>
 </head>
 
 <body>
-
   <!-- A lot of stuff on this HTML/ CSS is only for the sake of example/ reference as per initial mock up -
     (Change whatever you like) -->
   <div class="home-menu pure-menu pure-menu-horizontal">
-    <a class="pure-menu-heading" href="">
+    <a class="pure-menu-heading" href="index.html">
       <img src="./assets/images/logo.png" alt="Timeless Movies Logo" id="tm-logo">
     </a>
     <ul class="pure-menu-list">
       <li class="pure-menu-item pure-menu-selected">
-        <a href="" class="pure-menu-link">Timeline</a>
-      </li>
-      <li class="pure-menu-item">
         <a href="movie.html" class="pure-menu-link">Movie Search</a>
       </li>
     </ul>
@@ -33,17 +30,17 @@
   
   <!-- Website Title -->
   <div class="website-title">
-    <img src="./assets/images/logo2.png" alt="">
+    <img src="./assets/images/logo2.png" alt="Timeless Movies logo with a clock face">
   </div>
 
   <!-- Form for searching a specific year of film -->
   <form class="pure-form" id="year-search">
-      <input type="number" class="pure-input-rounded" placeholder="Search for a Year of Film" min="1914" max="2020" />
-      <button type="submit">
-        <span class="material-icons">
-          search
-        </span>
-      </button>
+    <input type="number" class="pure-input-rounded" placeholder="Search for a Year of Film" min="1914" max="2021" />
+    <button type="submit" class="search-btn">
+      <span class="material-icons">
+        search
+      </span>
+    </button>
   </form>
 
   <!-- Form for clicking decade buttons -->
