@@ -38,9 +38,9 @@ var populateMovies = function(movies, decade, year) {
     moviesDisplay.removeClass("d-none")
     moviesDisplay.empty()
     if(decade) {
-        var title = "Movies from the " + year + "'s"
+        var title = "Most Popular Movies from the " + year + "'s"
     } else {
-        var title = "Movies from " + year
+        var title = "Most Popular Movies from " + year
     }
     moviesDisplay.append(
         $("<div>").addClass("display-header").html(
@@ -62,12 +62,36 @@ var populateMovies = function(movies, decade, year) {
             )
         }
         var movieContainer = $("<div>").addClass("movie-list-item").attr("id", movie.imdbID).html(
-            `<img src="` + ((movie.Poster ==="N/A") ? "./assets/images/default.png" : movie.Poster) + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">
-            <h3>` + movie.Title + `</h3>
-            <span class="material-icons">
-                arrow_forward_ios
-            </span>`
-        )
+            `<img src="` + ((movie.Poster ==="N/A") ? "./assets/images/default.png" : movie.Poster) + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">`)
+        var movieInformation = $("<div>").addClass("movie-list-item-info")
+        movieInformation.append($("<h3>").text(movie.Title))
+        if(movie.Genre != "N/A") {
+            movieInformation.append($("<p>").text(movie.Genre))
+        }
+        if(movie.Rated != "N/A") {
+            movieInformation.append($("<p>").text(movie.Rated))
+        }
+        if(movie.Ratings.length >=0) {
+            movie.Ratings.forEach(rating => {
+                if (rating.Source === "Internet Movie Database") {
+                    movieInformation.append(
+                        $("<div>").addClass("rating-div").html(
+                            `<img src="./assets/images/imdb.png" alt="imdb logo"/>
+                            <p>` + rating.Value + `</p>`
+                        )
+                    )
+                } else if (rating.Source === "Rotten Tomatoes") {
+                    movieInformation.append(
+                        $("<div>").addClass("rating-div").html(
+                            `<img src="./assets/images/rotten-tom.png" alt="rottten tomatoes logo"/>
+                            <p>` + rating.Value + `</p>`
+                        )
+                    )
+                }
+            })
+        }
+        var iconSpan = $("<span>").addClass("material-icons").text("arrow_forward_ios")
+        movieContainer.append(movieInformation, iconSpan)
         moviesDisplay.append(movieContainer)
     })
     $("#decade-btns").addClass("d-none")

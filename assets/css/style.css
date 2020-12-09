@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: rgba(224, 226, 211, .45);
+    background-color: rgba(197, 218, 239, .45);
 }
 a {
     text-decoration: unset;
@@ -30,6 +30,8 @@ a {
     color: #696969;
     font-weight: bold;
     font-style: italic;
+
+    margin-right: 5px;
 }
 .pure-menu-item:hover {
     background-color: #F4B183;
@@ -56,9 +58,12 @@ a {
 .pure-form {
     display: flex;
     justify-content: center;
+    
+    margin-top: 30px;
 }
 .pure-form input {
     width: 70%;
+    text-align: center;
 }
 .search-btn {
     cursor: pointer;
@@ -67,6 +72,8 @@ a {
     border-radius: 5px;
     border: none;
     outline:none;
+
+    background-color: transparent;
 }
 .search-btn:hover {
     background-color: #F4B183;
@@ -131,6 +138,35 @@ a {
     background-size: cover;
 }
 
+#movies-display {
+    margin: 10px 5px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 10px;
+
+    background-color: white;
+}
+.display-header {
+    margin: 5px 0 15px 0;
+}
+.display-header h2 {
+    font-size: 17px;
+    font-style: italic;
+
+    margin: 0;
+}
+.display-date {
+    margin: 10px 0;
+    border-bottom: 1px solid black;
+}
+.display-date h4 {
+    font-size: 14px;
+    font-style: italic;
+
+    margin: 0;
+}
+
 .display-header {
     display: flex;
     justify-content: space-between;
@@ -142,6 +178,7 @@ a {
 
 .list-movie-poster {
     width: 100px;
+    border-radius: 5px;
 }
 .single-movie-poster {
     width: 100%;
@@ -152,6 +189,31 @@ a {
 
     display: flex;
     align-items: center;
+    
+    margin-bottom: 5px;
+}
+.movie-list-item-info {
+    margin-left: 10px;
+}
+.movie-list-item-info > * {
+    margin: 0 0 5px 0
+}
+.movie-list-item h3 {
+    font-size: 18px;
+}
+.movie-list-item p {
+    font-size: 14px;
+}
+.rating-div {
+    display:flex;
+    align-items: center;
+}
+.rating-div img {
+    margin-right: 10px;
+    height: 25px
+}
+.rating-div p { 
+    margin: 0;
 }
 .movie-list-item span {
     margin-left: auto;
@@ -195,6 +257,9 @@ a {
     .decade {
         width: 65%;
         height: 190px;
+    }
+    .pure-form input {
+        width: 40%;
     }
 }
 @media screen and (min-width: 1200px) {

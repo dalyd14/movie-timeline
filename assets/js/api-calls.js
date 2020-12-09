@@ -138,6 +138,7 @@ var omdbApiCalls = function (movies) {
     return new Promise(resolve => {
         var movieFetches = movies.map((movie) => {
             movie.movieTitle = movie.movieTitle.replace("Star Wars: ", "")
+            movie.movieTitle = ((movie.movieTitle === "Seven") ? "Se7en" : movie.movieTitle)
             return fetch("https://www.omdbapi.com/?t=" + movie.movieTitle.split(' ').join('+') + "&y=" + movie.movieYear + "&apikey=f92c60e5")
         })
         Promise.all(movieFetches).then((movies) => {
