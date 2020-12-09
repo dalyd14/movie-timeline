@@ -119,16 +119,39 @@ var checkIfYear = function(year) {
 var populateMovieInfo = function(movieInfo) {
     console.log(movieInfo)
     var releasedDate = moment(movieInfo.Released, "DD MMM YYYY")
-    $("#movie-poster").attr("src", movieInfo.Poster)
+    $("#movie-poster").attr("src", ((movieInfo.Poster != "N/A") ? movieInfo.Poster : "./assets/images/default.png" ))
     $("#movie-title").text(movieInfo.Title)
-    $("#movie-genre").text(movieInfo.Genre)
-    $("#movie-rated").text(movieInfo.Rated)
+    $("#movie-genre").text(((movieInfo.Genre != "N/A") ? movieInfo.Genre : ""))
+    $("#movie-rated").text(((movieInfo.Rated != "N/A") ? movieInfo.Rated : ""))
     $("#movie-release").text(releasedDate.format("MMMM DD, YYYY"))
-    $("#movie-director").text(movieInfo.Director)
-    $("#movie-actors").text(movieInfo.Actors)
-    $("#movie-plot").text(movieInfo.Plot)
-    $("#movie-awards").text(movieInfo.Awards)
-    $("#movie-time").text(movieInfo.Runtime)
+    $("#movie-time").text(((movieInfo.Runtime != "N/A") ? ("Length: " + movieInfo.Runtime) : ""))
+
+    if(movieInfo.Ratings.length >= 0) {
+        movieInfo.Ratings.forEach(rating => {
+            if (rating.Source === "Internet Movie Database") {
+                $(".top-movie-info").append(
+                    $("<div>").addClass("rating-div").html(
+                        `<img src="./assets/images/imdb.png" alt="imdb logo"/>
+                        <p>` + rating.Value + `</p>`
+                    )
+                )
+            } else if (rating.Source === "Rotten Tomatoes") {
+                $(".top-movie-info").append(
+                    $("<div>").addClass("rating-div").html(
+                        `<img src="./assets/images/rotten-tom.png" alt="rotten tomatoes logo"/>
+                        <p>` + rating.Value + `</p>`
+                    )
+                )
+            }
+        })
+    }
+    
+
+    $("#movie-director").text(((movieInfo.Director != "N/A") ? movieInfo.Director : ""))
+    $("#movie-actors").text(((movieInfo.Actors != "N/A") ? movieInfo.Actors : ""))
+    $("#movie-plot").text(((movieInfo.Plot != "N/A") ? movieInfo.Plot : ""))
+    $("#movie-awards").text(((movieInfo.Awards != "N/A") ? movieInfo.Awards : ""))
+    
     
     $("#default-img").addClass("d-none")
     $("#error-img").addClass("d-none")

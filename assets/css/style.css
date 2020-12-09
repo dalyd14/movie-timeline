@@ -138,7 +138,7 @@ a {
     background-size: cover;
 }
 
-#movies-display {
+.movies-display {
     margin: 10px 5px;
     padding: 0 5px;
     border: 1px solid #ccc;
@@ -179,9 +179,6 @@ a {
 .list-movie-poster {
     width: 100px;
     border-radius: 5px;
-}
-.single-movie-poster {
-    width: 100%;
 }
 
 .movie-list-item {
@@ -229,6 +226,26 @@ a {
 }
 #default-img img, #error-img img {
     width: 80%;
+}
+
+.out-g {
+    margin-top: 10px;
+}
+.single-movie-poster {
+    width: 100%;
+    border-radius: 10px;
+}
+.top-movie-info {
+    padding-left: 10px;
+}
+.top-movie-info > * {
+    margin: 0 0 10px 0
+}
+.bottom-movie-info p{
+    font-weight: bold;
+}
+.bottom-movie-info span{
+    font-weight: normal;
 }
 
 @media screen and (min-width: 768px) {
