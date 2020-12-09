@@ -157,6 +157,7 @@ var populateMovieInfo = function(movieInfo) {
     $("#error-img").addClass("d-none")
     $("#movie-display").removeClass("d-none")
 }
+
 var populateError = function(errorInfo) {
     console.log(errorInfo)    
     $("#default-img").removeClass("d-none")
