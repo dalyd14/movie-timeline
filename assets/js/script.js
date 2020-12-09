@@ -43,43 +43,30 @@ var populateMovies = function(movies, decade, year) {
         var title = "Movies from " + year
     }
     moviesDisplay.append(
-        $("<div>").addClass("display-header pure-g").html(
-            `<div class="pure-u-11-12">
-                <h2>` + title + `</h2>
-            </div>
-            <div class="exit-btn pure-u-1-12">
-                <span class="material-icons">
-                    close
-                </span>
-            </div>`
+        $("<div>").addClass("display-header").html(
+            `<h2>` + title + `</h2>
+            <span class="material-icons exit-btn">
+                close
+            </span>`
         )
     )
     var currentMonth = ""
     movies.forEach(movie => {
-        console.log(movie)
         var movieMonth = movie.releasedDate.format("MMMM, YYYY")
         if (currentMonth != movieMonth) {
             currentMonth = movieMonth
             moviesDisplay.append(
-                $("<div>").addClass("display-header pure-g").html(
-                    `<div class="pure-u-11-12">
-                        <h4>` + currentMonth + `</h4>
-                    </div>`
+                $("<div>").addClass("display-date").html(
+                    `<h4>` + currentMonth + `</h4>`
                 )
             )
         }
-        var movieContainer = $("<div>").addClass("pure-g movie-list-item").attr("id", movie.imdbID).html(
-            `<div class="pure-u-10-24">
-                <img src="` + ((movie.Poster ==="N/A") ? "./assets/images/default.png" : movie.Poster) + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">
-            </div>
-            <div class="pure-u-12-24">
-                <h3>` + movie.Title + `</h3>
-            </div>
-            <div class="pure-u-2-24">
-                <span class="material-icons">
-                    arrow_forward_ios
-                </span>
-            </div>`
+        var movieContainer = $("<div>").addClass("movie-list-item").attr("id", movie.imdbID).html(
+            `<img src="` + ((movie.Poster ==="N/A") ? "./assets/images/default.png" : movie.Poster) + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">
+            <h3>` + movie.Title + `</h3>
+            <span class="material-icons">
+                arrow_forward_ios
+            </span>`
         )
         moviesDisplay.append(movieContainer)
     })
@@ -107,19 +94,23 @@ var checkIfYear = function(year) {
 // Search function for movie.html (single movie search feature)
 var populateMovieInfo = function(movieInfo) {
     console.log(movieInfo)
+    var releasedDate = moment(movieInfo.Released, "DD MMM YYYY")
     $("#movie-poster").attr("src", movieInfo.Poster)
     $("#movie-title").text(movieInfo.Title)
     $("#movie-genre").text(movieInfo.Genre)
     $("#movie-rated").text(movieInfo.Rated)
-    $("#movie-release").text(movieInfo.Released)
+    $("#movie-release").text(releasedDate.format("MMMM DD, YYYY"))
     $("#movie-director").text(movieInfo.Director)
     $("#movie-actors").text(movieInfo.Actors)
     $("#movie-plot").text(movieInfo.Plot)
     $("#movie-awards").text(movieInfo.Awards)
     $("#movie-time").text(movieInfo.Runtime)
+
+    $("#movie-display").removeClass("d-none")
 }
 $( "#movie-search" ).submit(function( event ) {
     event.preventDefault();
+    $("#movie-display").addClass("d-none")
     var searchTerm = $(this).find("input").val()
     
     async function asyncCallforMovie() {
@@ -131,6 +122,7 @@ $( "#movie-search" ).submit(function( event ) {
 });
 
 if(document.URL.indexOf("movie.html") >= 0){ 
+    $("#movie-display").addClass("d-none")
     var imdbID = window.location.search.substring(1)
     if(imdbID) {
         async function asyncCallforMovie() {

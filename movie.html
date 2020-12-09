@@ -38,24 +38,28 @@
         </button>
     </form>
 
-    <section id="movie-display">
-        <div id="container-poster-info" class="flex-container">
-            <div id="movie-poster-display">
-                <img id="movie-poster" src="">
+    <section class="d-none" id="movie-display">
+        <div class="pure-g">
+            <div class="pure-u">
+                <div class="pure-g">
+                    <div class="pure-u-10-24">
+                        <img class="single-movie-poster" id="movie-poster" src="">
+                    </div>
+                    <div class="pure-u-14-24">
+                        <h4><span id="movie-title"></span></h4>
+                        <p><span id="movie-genre"></span></p>
+                        <p>Rated:  <span id="movie-rated"></span></p>
+                        <p>Release Date: <span id="movie-release"></span> </p>
+                        <p>Run Time: <span id="movie-time"></span></p> 
+                    </div>
+                </div>
             </div>
-            <div id="info-box-one">
-                <h4>Title: <span id="movie-title">hi</span></h4>
-                <p>Genre:  <span id="movie-genre"></span></p>
-                <p>Rated:  <span id="movie-rated"></span></p>
-                <p>Release Date: <span id="movie-release"></span> </p>
+            <div class="pure-u">
+                <h4>Plot: <span id="movie-plot"></span></h4>
+                <p>Awards: <span id="movie-awards"></span></p>
                 <p>Directed By:  <span id="movie-director"></span></p>
-                <p>Actors:  <span id="movie-actors"></span></p>
+                <p>Actors:  <span id="movie-actors"></span></p>   
             </div>
-        </div>
-        <div id="info-box-bottom">
-            <h4>Plot: <span id="movie-plot"></span></h4>
-            <p>Awards: <span id="movie-awards"></span></p>
-            <p>Run Time: <span id="movie-time"></span></p>
         </div>
     </section>
 
