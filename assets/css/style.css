@@ -1,67 +1,98 @@
 * {
     box-sizing: border-box;
 }
+body {
+    background-color: rgba(224, 226, 211, .45);
+}
 a {
     text-decoration: unset;
     color: unset;
 }
 
 .d-none {
-    display: none;
-}
-
-.home-menu {
-    background-color: grey;
-    border-radius: 50%;
-   
+    display: none !important;
 }
 
 #tm-logo {
     height: 45px;
 }
 
+.website-title {
+    width: 100%;
+    text-align: center;
+}
+.website-title img {
+    width: 80%;
+}
+
 #year-search {
     display: flex;
     justify-content: center;
 }
+#year-search input {
+    width: 70%;
+}
+
 #year-search input, #year-search button {
     display: inline-block;
     margin: 0;
-    background-color: white;
-    color: white;
 }
 
-#year-search button {
-    background-color: grey;
-    color: white;
-    border-radius: 50%;
+.flex-container {
+    display: flex;
+    margin-top: 3%;
 }
 
-#year-search :hover {
-    color: black;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 5px rgba(148, 7, 7, 0.692);  
+#movie-poster-display {
+    background-color: lightgrey;
+    width: 35%;
+    height: 300px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    flex: 1;
 }
 
+#info-box-one {
+    background-color: lightgrey;
+    width: 60%;
+    height: 300px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 3%;
+    text-align: center;
+}
 
+#info-box-bottom {
+    background-color: lightgrey;
+    width: 80%;
+    height: 300px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 3%;
+    margin-left: 10%;
+    text-align: center;
+}
 
-body {
-    background-color: rgb(110, 140, 184); 
-    opacity: 1
+#decade-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .decade {
-    border-radius: 50%;
-    width: calc(20% - 20px);
-    height: 80px;
+    border-radius: 5px;
+    width: 80%;
+    height: 150px;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
+
     display: flex;    
     justify-content: center;
     align-items: center;
-    background-color: grey;
+
     color: white
 }
 
@@ -82,6 +113,33 @@ body {
 }
 
 
+
+
+[id="1970"] {
+    background-image: url("../images/1970.png");
+    background-position: center;
+    background-size: cover;
+}
+[id="1980"] {
+    background-image: url("../images/1980.png");
+    background-position: center;
+    background-size: cover;
+}
+[id="1990"] {
+    background-image: url("../images/1990.png");
+    background-position: center;
+    background-size: cover;
+}
+[id="2000"] {
+    background-image: url("../images/2000.png");
+    background-position: center;
+    background-size: cover;
+}
+[id="2010"] {
+    background-image: url("../images/2010.png");
+    background-position: center;
+    background-size: cover;
+}
 
 #movies-display {
     padding: 10px;
