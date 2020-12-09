@@ -18,8 +18,29 @@ a {
     justify-content: space-between;
     align-items: center;
 }
+
 #tm-logo {
     height: 45px;
+}
+.pure-menu-item {
+    cursor: pointer;
+
+    background-color: #FFE699;
+    border-radius: 5px;
+    color: black;
+}
+.pure-menu-item:hover {
+    background-color: #F4B183;
+}
+.menu-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.menu-item-content p {
+    margin: 0;
+    padding-right: 10px;
 }
 
 .website-title {
@@ -41,7 +62,15 @@ a {
     cursor: pointer;
 
     color: #A2A1A1;
+    border-radius: 5px;
     border: none;
+    outline:none;
+}
+.search-btn:hover {
+    background-color: #F4B183;
+}
+.search-btn:active {
+    background-color: #FFE699;
 }
 
 .pure-form input, .search-btn {
@@ -121,4 +150,12 @@ a {
 }
 .movie-list-item span {
     margin-left: auto;
+}
+
+#default-img {
+    margin-top: 100px;
+    text-align: center;
+}
+#default-img img {
+    width: 80%;
 }

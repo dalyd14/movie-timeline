@@ -105,17 +105,31 @@ var populateMovieInfo = function(movieInfo) {
     $("#movie-plot").text(movieInfo.Plot)
     $("#movie-awards").text(movieInfo.Awards)
     $("#movie-time").text(movieInfo.Runtime)
-
+    
+    $("#default-img").addClass("d-none")
     $("#movie-display").removeClass("d-none")
 }
+var populateError = function(errorInfo) {
+    console.log(errorInfo)    
+    $("#default-img").removeClass("d-none")
+    $("#movie-display").addClass("d-none")
+}
+
 $( "#movie-search" ).submit(function( event ) {
     event.preventDefault();
+    
     $("#movie-display").addClass("d-none")
+    $("#default-img").removeClass("d-none")
+
     var searchTerm = $(this).find("input").val()
     
     async function asyncCallforMovie() {
         var results = await singleOmdbApiCall(searchTerm, false)
-        populateMovieInfo(results) 
+        if (results.Response === "True") {
+            populateMovieInfo(results) 
+        } else {
+            populateError(results)
+        }
     }
     asyncCallforMovie()
     $(this).find("input").val("")         
@@ -123,11 +137,16 @@ $( "#movie-search" ).submit(function( event ) {
 
 if(document.URL.indexOf("movie.html") >= 0){ 
     $("#movie-display").addClass("d-none")
+    $("#default-img").removeClass("d-none")
     var imdbID = window.location.search.substring(1)
     if(imdbID) {
         async function asyncCallforMovie() {
             var results = await singleOmdbApiCall(imdbID, true)
-            populateMovieInfo(results) 
+            if (results.Response === "True") {
+                populateMovieInfo(results) 
+            } else {
+                populateError(results)
+            }
         }
         asyncCallforMovie()
     }
