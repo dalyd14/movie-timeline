@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Pure CSS Stylesheet-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.css"
+    integrity="sha512-FEioxlObRXIskNAQ1/L0byx0SEkfAY+5fO024p9kGEfUQnACGRfCG5Af4bp/7sPNSzKbMtvmcJOWZC7fPX1/FA=="
+    crossorigin="anonymous" />
+    <!--This stylesheet is for the icons used-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Our own personal stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Our fav icon -->
+  <link rel="icon" type="image/png" href="./assets/images/logo.png"/>
+  <title>Movie Timeline</title>
+</head>
+
+<body>
+  <!-- Navigation Header: Top of Page -->
+  <div class="home-menu pure-menu pure-menu-horizontal">
+    <!-- Timeless Movies Logo in Nav Bar  -->
+    <a class="pure-menu-heading" href="index.html">
+      <img src="./assets/images/logo.png" alt="Timeless Movies Logo" id="tm-logo">
+    </a>
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item">
+        <!-- Nav button that takes us to movie.html to search for individual movies -->
+        <a href="movie.html">
+          <div class="menu-item-content">
+            <p>
+              Movie Search
+            </p>
+            <!-- This span puts a right arrow icon...from google font api link above -->
+            <span class="material-icons">
+              arrow_forward_ios
+            </span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>  
+  
+  <!-- Hero section with big logo -->
+  <div class="website-title">
+    <img src="./assets/images/logo2.png" alt="Timeless Movies logo with a clock face">
+  </div>
+
+  <!-- Form for searching a specific year of film -->
+  <form class="pure-form" id="year-search">
+    <!-- This input will only accept numbers btwn the min and max -->
+    <input type="number" class="pure-input-rounded" placeholder="Search for a Year of Film" min="1914" max="2021" />
+    <button type="submit" class="search-btn">
+      <span class="material-icons">
+        search
+      </span>
+    </button>
+  </form>
+
+  <!-- Container of decade buttons -->
+  <div id="decade-btns">
+    <!-- Each div has a b/g image that pertains to that decade -->
+    <div class="decade" id="2010">
+      2010's
+    </div>
+    <div class="decade" id="2000">
+      2000's
+    </div>
+    <div class="decade" id="1990">
+      1990's
+    </div>
+    <div class="decade" id="1980">
+      1980's
+    </div>
+    <div class="decade" id="1970">
+      1970's
+    </div>
+  </div>
+
+  <!-- Display of movies for given year or decade -->
+  <!-- Script.js will dynamically add movies to this section -->
+  <section id="movies-display" class="d-none movies-display" ></section>
+  
+  <!-- CDN JS for Jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"></script>
+    <!-- CDN JS for Moment.js  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous"></script>
+    <!-- Our own script file for calling wikipedia and omdb api -->
+  <script src="./assets/js/api-calls.js"></script>
+  <!-- Our own script file for dynamically changing html -->
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>

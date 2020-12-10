@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Pure CSS Stylesheet-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.css"
+        integrity="sha512-FEioxlObRXIskNAQ1/L0byx0SEkfAY+5fO024p9kGEfUQnACGRfCG5Af4bp/7sPNSzKbMtvmcJOWZC7fPX1/FA=="
+        crossorigin="anonymous" />
+    <!--This stylesheet is for the icons used-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Our own personal stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Our fav icon -->
+    <link rel="icon" type="image/png" href="./assets/images/logo.png"/>
+    <title>Movie Timeline</title>
+</head>
+
+<body>
+     <!-- Navigation Header: Top of Page -->
+    <div class="home-menu pure-menu pure-menu-horizontal">
+        <!-- Timeless Movies Logo in Nav Bar  -->
+        <a class="pure-menu-heading" href="index.html">
+            <img src="./assets/images/logo.png" alt="Timeless Movies Logo" id="tm-logo">
+        </a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                <!-- Nav button that takes us to index.html to search for years or decades -->
+                <a href="index.html">
+                    <div class="menu-item-content">
+                        <p>
+                            Timeline
+                        </p>
+                        <!-- This span puts a right arrow icon...from google font api link above -->
+                        <span class="material-icons">
+                            arrow_forward_ios
+                        </span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Form for searching a specific film -->
+    <form class="pure-form" id="movie-search">
+        <!-- This input will accept any text -->
+        <input type="text" class="pure-input-rounded" placeholder="Search for Movie Title" autofocus/>
+        <button type="submit" class="search-btn">
+            <span class="material-icons">
+                search
+            </span>
+        </button>
+    </form>
+
+    <!-- This section displays error message when appropriate  -->
+    <section id="error-img" class="">
+        <img src="./assets/images/error-pic.png" alt="">
+    </section>
+
+    <!-- This section displays big movie logo when no movie is present  -->
+    <section id="default-img" class="">
+        <img src="./assets/images/logo2.png" alt="">
+    </section>
+
+    <!-- This section displays the movie information  -->
+    <section class="d-none movies-display" id="movie-display">
+    <!-- Pure CSS grid     -->
+        <div class="pure-g out-g">
+            <div class="pure-u">
+                <div class="pure-g">
+                    <div class="pure-u-10-24">
+                        <img class="single-movie-poster" id="movie-poster" src="">
+                    </div>
+                    <div class="pure-u-14-24 top-movie-info">
+                        <h4><span id="movie-title"></span></h4>
+                        <p><span id="movie-genre"></span></p>
+                        <p><span id="movie-rated"></span></p>
+                        <p><span id="movie-release"></span> </p>
+                        <p><span id="movie-time"></span></p> 
+                    </div>
+                </div>
+            </div>
+            <div class="pure-u bottom-movie-info">
+                <p>Plot: <span id="movie-plot"></span></p>
+                <p>Awards: <span id="movie-awards"></span></p>
+                <p>Directed By:  <span id="movie-director"></span></p>
+                <p>Actors:  <span id="movie-actors"></span></p>   
+            </div>
+        </div>
+    </section>
+
+    <!-- CDN JS for Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <!-- CDN JS for Moment.js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"></script>
+    <!-- Our own script file for calling wikipedia and omdb api -->
+    <script src="./assets/js/api-calls.js"></script>
+    <!-- Our own script file for dynamically changing html -->
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
