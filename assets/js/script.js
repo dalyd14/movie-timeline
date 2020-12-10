@@ -128,7 +128,6 @@ var checkIfYear = function(year) {
 
 // Search function for movie.html (single movie search feature)
 var populateMovieInfo = function(movieInfo) {
-    console.log(movieInfo)
     var releasedDate = moment(movieInfo.Released, "DD MMM YYYY")
     $("#movie-poster").attr("src", ((movieInfo.Poster != "N/A") ? movieInfo.Poster : "./assets/images/default.png" ))
     $("#movie-title").text(movieInfo.Title)
@@ -171,10 +170,9 @@ var populateMovieInfo = function(movieInfo) {
 
 // This function shows the error message when a user searches for a non existant film
 var populateError = function() {
-       
+    $("#movie-display").addClass("d-none")   
     $("#default-img").addClass("d-none")
     $("#error-img").removeClass("d-none")
-    $("#movie-display").addClass("d-none")
 }
 
 // This function is called when you submit movie search form
@@ -182,9 +180,9 @@ $( "#movie-search" ).submit(function( event ) {
     event.preventDefault();
     
     $("#movie-display").addClass("d-none")
-    $("#default-img").removeClass("d-none")
     $("#error-img").addClass("d-none")
-
+    $("#default-img").removeClass("d-none")
+    
     var searchTerm = $(this).find("input").val()
     window.location = "./movie.html?t=" + searchTerm.trim().split(" ").join("+")     
 });
@@ -192,8 +190,9 @@ $( "#movie-search" ).submit(function( event ) {
 // This function uses url query params to figure out what movie to search for
 if(document.URL.indexOf("movie.html") >= 0){ 
     $("#movie-display").addClass("d-none")
-    $("#default-img").removeClass("d-none")
     $("#error-img").addClass("d-none")
+    $("#default-img").removeClass("d-none")
+    
     var searchTerm = window.location.search.substring(1)
     if(searchTerm) {
         async function asyncCallforMovie() {
