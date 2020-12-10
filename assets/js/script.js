@@ -177,6 +177,7 @@ var populateError = function() {
     $("#movie-display").addClass("d-none")
 }
 
+// This function is called when you submit movie search form
 $( "#movie-search" ).submit(function( event ) {
     event.preventDefault();
     
@@ -188,6 +189,7 @@ $( "#movie-search" ).submit(function( event ) {
     window.location = "./movie.html?t=" + searchTerm.trim().split(" ").join("+")     
 });
 
+// This function uses url query params to figure out what movie to search for
 if(document.URL.indexOf("movie.html") >= 0){ 
     $("#movie-display").addClass("d-none")
     $("#default-img").removeClass("d-none")
