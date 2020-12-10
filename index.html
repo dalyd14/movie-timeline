@@ -42,13 +42,14 @@
     </ul>
   </div>  
   
-  <!-- Website Title -->
+  <!-- Hero section with big logo -->
   <div class="website-title">
     <img src="./assets/images/logo2.png" alt="Timeless Movies logo with a clock face">
   </div>
 
   <!-- Form for searching a specific year of film -->
   <form class="pure-form" id="year-search">
+    <!-- This input will only accept numbers btwn the min and max -->
     <input type="number" class="pure-input-rounded" placeholder="Search for a Year of Film" min="1914" max="2021" />
     <button type="submit" class="search-btn">
       <span class="material-icons">
@@ -57,8 +58,9 @@
     </button>
   </form>
 
-  <!-- Form for clicking decade buttons -->
+  <!-- Container of decade buttons -->
   <div id="decade-btns">
+    <!-- Each div has a b/g image that pertains to that decade -->
     <div class="decade" id="2010">
       2010's
     </div>
@@ -76,6 +78,8 @@
     </div>
   </div>
 
+  <!-- Display of movies for given year or decade -->
+  <!-- Script.js will dynamically add movies to this section -->
   <section id="movies-display" class="d-none movies-display" ></section>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
