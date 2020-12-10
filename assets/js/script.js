@@ -43,13 +43,11 @@ var populateMovies = function(movies, decade, year) {
         var title = "Most Popular Movies from " + year
     }
     moviesDisplay.append(
-        $("<div>").addClass("display-header pure-g").html(
-            `<div class="pure-u-11-12">
-                <h2>` + title + `</h2>
-            </div>
-            <button class="exit-btn pure-button"><i
-            class="fa fa-close"></i>Close
-            </button>`
+        $("<div>").addClass("display-header").html(
+            `<h2>` + title + `</h2>
+            <span class="material-icons exit-btn">
+                close
+            </span>`
         )
     )
     var currentMonth = ""
