@@ -2,61 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- (Take note) Divs currently are not responsive to minimizing! -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.css"
-        integrity="sha512-FEioxlObRXIskNAQ1/L0byx0SEkfAY+5fO024p9kGEfUQnACGRfCG5Af4bp/7sPNSzKbMtvmcJOWZC7fPX1/FA=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Movie Timeline</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (Take note) Divs currently are not responsive to minimizing! -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.css"
+    integrity="sha512-FEioxlObRXIskNAQ1/L0byx0SEkfAY+5fO024p9kGEfUQnACGRfCG5Af4bp/7sPNSzKbMtvmcJOWZC7fPX1/FA=="
+    crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="./assets/images/logo.png"/>
+  <title>Movie Timeline</title>
 </head>
 
 <body>
-
     <!-- A lot of stuff on this HTML/ CSS is only for the sake of example/ reference as per initial mock up -
-    (Change whatever you like) -->
+        (Change whatever you like) -->
     <div class="home-menu pure-menu pure-menu-horizontal">
-        <a class="pure-menu-heading" href="">
-          <img src="./assets/images/logo.png" alt="Timeless Movies Logo" id="tm-logo">
+        <a class="pure-menu-heading" href="index.html">
+            <img src="./assets/images/logo.png" alt="Timeless Movies Logo" id="tm-logo">
         </a>
         <ul class="pure-menu-list">
-          <li class="pure-menu-item">
-            <a href="index.html" class="pure-menu-link">Timeline</a>
-          </li>
-          <li class="pure-menu-item pure-menu-selected">
-            <a href="" class="pure-menu-link">Movie Search</a>
-          </li>
+            <li class="pure-menu-item">
+                <a href="index.html">
+                <div class="menu-item-content">
+                    <p>
+                        Timeline
+                    </p>
+                    <span class="material-icons">
+                        arrow_forward_ios
+                    </span>
+                </div>
+                </a>
+            </li>
         </ul>
-      </div>
+    </div>  
+
     <!-- Form for searching a specific year of film -->
     <form class="pure-form" id="movie-search">
-        <fieldset>
-            <input type="text" class="pure-input-rounded" placeholder="Place Movie Title Here" />
-            <button type="submit" class="pure-button pure-button-primary">Search</button>
-        </fieldset>
+        <input type="text" class="pure-input-rounded" placeholder="Search for Movie Title" autofocus/>
+        <button type="submit" class="search-btn">
+            <span class="material-icons">
+                search
+            </span>
+        </button>
     </form>
-
-
-    <section id="movie-display">
-        <div id="container-poster-info" class="flex-container">
-            <div id="movie-poster-display">
-                <img id="movie-poster" src="">
-               
+    <section id="error-img" class="">
+        <img src="./assets/images/error-pic.png" alt="">
+    </section>
+    <section id="default-img" class="">
+        <img src="./assets/images/logo2.png" alt="">
+    </section>
+    <section class="d-none movies-display" id="movie-display">
+        <div class="pure-g out-g">
+            <div class="pure-u">
+                <div class="pure-g">
+                    <div class="pure-u-10-24">
+                        <img class="single-movie-poster" id="movie-poster" src="">
+                    </div>
+                    <div class="pure-u-14-24 top-movie-info">
+                        <h4><span id="movie-title"></span></h4>
+                        <p><span id="movie-genre"></span></p>
+                        <p><span id="movie-rated"></span></p>
+                        <p><span id="movie-release"></span> </p>
+                        <p><span id="movie-time"></span></p> 
+                    </div>
+                </div>
             </div>
-            <div id="info-box-one">
-                <h4>Title: <span id="movie-title">hi</span></h4>
-                <p>Genre:  <span id="movie-genre"></span></p>
-                <p>Rated:  <span id="movie-rated"></span></p>
-                <p>Release Date: <span id="movie-release"></span> </p>
+            <div class="pure-u bottom-movie-info">
+                <p>Plot: <span id="movie-plot"></span></p>
+                <p>Awards: <span id="movie-awards"></span></p>
                 <p>Directed By:  <span id="movie-director"></span></p>
-                <p>Actors:  <span id="movie-actors"></span></p>
+                <p>Actors:  <span id="movie-actors"></span></p>   
             </div>
-        </div>
-        <div id="info-box-bottom">
-            <h4>Plot: <span id="movie-plot"></span></h4>
-            <p>Awards: <span id="movie-awards"></span></p>
-            <p>Run Time: <span id="movie-time"></span></p>
         </div>
     </section>
 
@@ -66,7 +83,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
         integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
         crossorigin="anonymous"></script>
-
     <script src="./assets/js/api-calls.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

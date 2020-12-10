@@ -108,14 +108,13 @@ var getDecadeTopMovies = function(decade) {
 var singleOmdbApiCall = function (title) {
     return new Promise(resolve => {
         if (typeof title === "string") {
-            fetch("https://www.omdbapi.com/?t=" + title.trim().split(' ').join('+') + "&apikey=f92c60e5").then(function (response) {
+            fetch("https://www.omdbapi.com/?" + title.trim() + "&apikey=f92c60e5").then(function (response) {
                 if (response.ok) {
                     response.json().then(function (data) {
                         resolve(data)
-
                     })
                 }
-            })
+            })  
         } else {
             resolve({
                 Response: "False",
@@ -128,6 +127,8 @@ var singleOmdbApiCall = function (title) {
 var omdbApiCalls = function (movies) {
     return new Promise(resolve => {
         var movieFetches = movies.map((movie) => {
+            movie.movieTitle = movie.movieTitle.replace("Star Wars: ", "")
+            movie.movieTitle = ((movie.movieTitle === "Seven") ? "Se7en" : movie.movieTitle)
             return fetch("https://www.omdbapi.com/?t=" + movie.movieTitle.split(' ').join('+') + "&y=" + movie.movieYear + "&apikey=f92c60e5")
         })
         Promise.all(movieFetches).then((movies) => {

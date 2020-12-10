@@ -1,3 +1,8 @@
+var currentYear = parseInt(moment().format("YYYY"))
+if(currentYear>=2020) {
+    $("#year-search").find("input").attr("max", currentYear)
+}
+
 $("#decade-btns").on("click", ".decade", function(){
     var decade = $(this).attr("id")
     async function asyncCallforDecades() {
@@ -28,15 +33,14 @@ $("#movies-display").on("click", ".exit-btn", function(){
     $("#movies-display").addClass("d-none")
 })
 
-
 var populateMovies = function(movies, decade, year) {
     var moviesDisplay = $("#movies-display")
     moviesDisplay.removeClass("d-none")
     moviesDisplay.empty()
     if(decade) {
-        var title = "Movies from the " + year + "'s"
+        var title = "Most Popular Movies from the " + year + "'s"
     } else {
-        var title = "Movies from " + year
+        var title = "Most Popular Movies from " + year
     }
     moviesDisplay.append(
         $("<div>").addClass("display-header pure-g").html(
@@ -54,33 +58,55 @@ var populateMovies = function(movies, decade, year) {
         if (currentMonth != movieMonth) {
             currentMonth = movieMonth
             moviesDisplay.append(
-                $("<div>").addClass("display-header pure-g").html(
-                    `<div class="pure-u-11-12">
-                        <h4>` + currentMonth + `</h4>
-                    </div>`
+                $("<div>").addClass("display-date").html(
+                    `<h4>` + currentMonth + `</h4>`
                 )
             )
         }
-        var movieContainer = $("<div>").addClass("pure-g").html(
-            `<div class="pure-u-10-24">
-                <img src="` + movie.Poster + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">
-            </div>
-            <div class="pure-u-12-24">
-                <h3>` + movie.Title + `</h3>
-            </div>
-            <div class="pure-u-2-24">
-                <h4>></h4>
-            </div>`
-        )
+        var movieContainer = $("<div>").addClass("movie-list-item").attr("id", movie.imdbID).html(
+            `<img src="` + ((movie.Poster ==="N/A") ? "./assets/images/default.png" : movie.Poster) + `" alt="` + movie.Title + ` Movie Poster" class="list-movie-poster">`)
+        var movieInformation = $("<div>").addClass("movie-list-item-info")
+        movieInformation.append($("<h3>").text(movie.Title))
+        if(movie.Genre != "N/A") {
+            movieInformation.append($("<p>").text(movie.Genre))
+        }
+        if(movie.Rated != "N/A") {
+            movieInformation.append($("<p>").text(movie.Rated))
+        }
+        if(movie.Ratings.length >=0) {
+            movie.Ratings.forEach(rating => {
+                if (rating.Source === "Internet Movie Database") {
+                    movieInformation.append(
+                        $("<div>").addClass("rating-div").html(
+                            `<img src="./assets/images/imdb.png" alt="imdb logo"/>
+                            <p>` + rating.Value + `</p>`
+                        )
+                    )
+                } else if (rating.Source === "Rotten Tomatoes") {
+                    movieInformation.append(
+                        $("<div>").addClass("rating-div").html(
+                            `<img src="./assets/images/rotten-tom.png" alt="rottten tomatoes logo"/>
+                            <p>` + rating.Value + `</p>`
+                        )
+                    )
+                }
+            })
+        }
+        var iconSpan = $("<span>").addClass("material-icons").text("arrow_forward_ios")
+        movieContainer.append(movieInformation, iconSpan)
         moviesDisplay.append(movieContainer)
     })
     $("#decade-btns").addClass("d-none")
 }
 
+$("#movies-display").on("click", ".movie-list-item", function(){
+    window.location = "./movie.html?i=" + $(this).attr("id")
+})
+
+// function for checking if the input was a valid year
 var checkIfYear = function(year) {
     if(typeof year === "string" & year.length === 4) {
         var yearNum = parseInt(year)
-        var currentYear = parseInt(moment().format("YYYY"))
         if (yearNum >= 1914 & yearNum <= currentYear) {
             return [true, "Success"]
         } else {
@@ -90,29 +116,82 @@ var checkIfYear = function(year) {
         return [false, "Please enter a valid year like 2016"]
     }
 }
+
+// Search function for movie.html (single movie search feature)
 var populateMovieInfo = function(movieInfo) {
     console.log(movieInfo)
-    $("#movie-poster").attr("src", movieInfo.Poster)
+    var releasedDate = moment(movieInfo.Released, "DD MMM YYYY")
+    $("#movie-poster").attr("src", ((movieInfo.Poster != "N/A") ? movieInfo.Poster : "./assets/images/default.png" ))
     $("#movie-title").text(movieInfo.Title)
-    $("#movie-genre").text(movieInfo.Genre)
-    $("#movie-rated").text(movieInfo.Rated)
-    $("#movie-release").text(movieInfo.Released)
-    $("#movie-director").text(movieInfo.Director)
-    $("#movie-actors").text(movieInfo.Actors)
-    $("#movie-plot").text(movieInfo.Plot)
-    $("#movie-awards").text(movieInfo.Awards)
-    $("#movie-time").text(movieInfo.Runtime)
+    $("#movie-genre").text(((movieInfo.Genre != "N/A") ? movieInfo.Genre : ""))
+    $("#movie-rated").text(((movieInfo.Rated != "N/A") ? movieInfo.Rated : ""))
+    $("#movie-release").text(releasedDate.format("MMMM DD, YYYY"))
+    $("#movie-time").text(((movieInfo.Runtime != "N/A") ? ("Length: " + movieInfo.Runtime) : ""))
+
+    if(movieInfo.Ratings.length >= 0) {
+        movieInfo.Ratings.forEach(rating => {
+            if (rating.Source === "Internet Movie Database") {
+                $(".top-movie-info").append(
+                    $("<div>").addClass("rating-div").html(
+                        `<img src="./assets/images/imdb.png" alt="imdb logo"/>
+                        <p>` + rating.Value + `</p>`
+                    )
+                )
+            } else if (rating.Source === "Rotten Tomatoes") {
+                $(".top-movie-info").append(
+                    $("<div>").addClass("rating-div").html(
+                        `<img src="./assets/images/rotten-tom.png" alt="rotten tomatoes logo"/>
+                        <p>` + rating.Value + `</p>`
+                    )
+                )
+            }
+        })
+    }
+    
+
+    $("#movie-director").text(((movieInfo.Director != "N/A") ? movieInfo.Director : ""))
+    $("#movie-actors").text(((movieInfo.Actors != "N/A") ? movieInfo.Actors : ""))
+    $("#movie-plot").text(((movieInfo.Plot != "N/A") ? movieInfo.Plot : ""))
+    $("#movie-awards").text(((movieInfo.Awards != "N/A") ? movieInfo.Awards : ""))
+    
+    
+    $("#default-img").addClass("d-none")
+    $("#error-img").addClass("d-none")
+    $("#movie-display").removeClass("d-none")
 }
 
+var populateError = function(errorInfo) {
+    console.log(errorInfo)    
+    $("#default-img").removeClass("d-none")
+    $("#error-img").removeClass("d-none")
+    $("#movie-display").addClass("d-none")
+}
 
 $( "#movie-search" ).submit(function( event ) {
     event.preventDefault();
-    var searchTerm = $(this).find("input").val()
     
-    async function asyncCallforMovie() {
-        var results = await singleOmdbApiCall(searchTerm)
-        populateMovieInfo(results) 
-    }
-    asyncCallforMovie()
-    $(this).find("input").val("")         
+    $("#movie-display").addClass("d-none")
+    $("#default-img").removeClass("d-none")
+    $("#error-img").addClass("d-none")
+
+    var searchTerm = $(this).find("input").val()
+    window.location = "./movie.html?t=" + searchTerm.trim().split(" ").join("+")     
 });
+
+if(document.URL.indexOf("movie.html") >= 0){ 
+    $("#movie-display").addClass("d-none")
+    $("#default-img").removeClass("d-none")
+    $("#error-img").addClass("d-none")
+    var searchTerm = window.location.search.substring(1)
+    if(searchTerm) {
+        async function asyncCallforMovie() {
+            var results = await singleOmdbApiCall(searchTerm)
+            if (results.Response === "True") {
+                populateMovieInfo(results) 
+            } else {
+                populateError(results)
+            }
+        }
+        asyncCallforMovie()
+    }
+}
