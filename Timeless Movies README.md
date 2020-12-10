@@ -14,6 +14,5 @@ Timeless Movies Application
  - IMDB
  - Rotten Tomatoes
 
-
 Deployed Website:
 https://dalyd14.github.io/movie-timeline/
