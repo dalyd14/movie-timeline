@@ -1,9 +1,12 @@
+// Gets current year we are in and sets to input max attribute
 var currentYear = parseInt(moment().format("YYYY"))
 if(currentYear>=2020) {
     $("#year-search").find("input").attr("max", currentYear)
 }
 
+// When you click a decade button an api call is made
 $("#decade-btns").on("click", ".decade", function(){
+    // Returns id of decade button pressed
     var decade = $(this).attr("id")
     async function asyncCallforDecades() {
         var results = await getDecadeTopMovies(decade)
@@ -12,9 +15,13 @@ $("#decade-btns").on("click", ".decade", function(){
     asyncCallforDecades()
 })
 
+// When the year search form is submitted, call this function
 $( "#year-search" ).submit(function( event ) {
     event.preventDefault();
+
+    // Get year that was typed into input 
     var searchTerm = $(this).find("input").val()
+    // Check if year function ensures that the input is valid
     var resultArr = checkIfYear(searchTerm)
     if (resultArr[0]) {
         async function asyncCallforYear() {
@@ -28,11 +35,13 @@ $( "#year-search" ).submit(function( event ) {
     }
 });
 
+// When the exit button is clicked, display decade buttons
 $("#movies-display").on("click", ".exit-btn", function(){
     $("#decade-btns").removeClass("d-none")
     $("#movies-display").addClass("d-none")
 })
 
+// Populating list of movies onto the html
 var populateMovies = function(movies, decade, year) {
     var moviesDisplay = $("#movies-display")
     moviesDisplay.removeClass("d-none")
@@ -97,7 +106,9 @@ var populateMovies = function(movies, decade, year) {
     $("#decade-btns").addClass("d-none")
 }
 
+// When you click on individual movie from the list...
 $("#movies-display").on("click", ".movie-list-item", function(){
+// Navigates to movie.html page for specific movie
     window.location = "./movie.html?i=" + $(this).attr("id")
 })
 
@@ -158,8 +169,9 @@ var populateMovieInfo = function(movieInfo) {
     $("#movie-display").removeClass("d-none")
 }
 
-var populateError = function(errorInfo) {
-    console.log(errorInfo)    
+// This function shows the error message when a user searches for a non existant film
+var populateError = function() {
+       
     $("#default-img").removeClass("d-none")
     $("#error-img").removeClass("d-none")
     $("#movie-display").addClass("d-none")
