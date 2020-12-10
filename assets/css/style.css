@@ -1,3 +1,4 @@
+/* The following styles are for the general page */
 * {
     box-sizing: border-box;
 }
@@ -13,18 +14,15 @@ a {
     display: none !important;
 }
 
+/* Navigation menu styling */
 #tm-logo {
     height: 45px;
 }
-
-
-/* Navigation menu styling */
 .pure-menu-horizontal {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .pure-menu-item {
     cursor: pointer;
 
@@ -36,18 +34,15 @@ a {
 
     margin-right: 5px;
 }
-
 .pure-menu-item:hover {
     background-color: #F4B183;
 }
-
 .menu-item-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
 }
-
 .menu-item-content p {
     margin: 0;
     padding-right: 10px;
@@ -58,23 +53,21 @@ a {
     width: 100%;
     text-align: center;
 }
-
 .website-title img {
     width: 80%;
 }
 
+/* The search form styling */
 .pure-form {
     display: flex;
     justify-content: center;
     
     margin-top: 30px;
 }
-
 .pure-form input {
     width: 70%;
     text-align: center;
 }
-
 .search-btn {
     cursor: pointer;
     color: #A2A1A1;
@@ -83,15 +76,12 @@ a {
     outline:none;
     background-color: transparent;
 }
-
 .search-btn:hover {
     background-color: #F4B183;
 }
-
 .search-btn:active {
     background-color: #FFE699;
 }
-
 .pure-form input, .search-btn {
     display: inline-block;
     margin: 0 !important;
@@ -103,7 +93,6 @@ a {
     flex-direction: column;
     align-items: center;
 }
-
 .decade {
     cursor: pointer;
     border-radius: 5px;
@@ -119,7 +108,7 @@ a {
     font-style: italic;
     font-size: 40px;
 }
-
+/* The decade buttons background images */
 [id="1970"] {
     background-image: url("../images/1970.png");
     background-position: center;
@@ -146,7 +135,7 @@ a {
     background-size: cover;
 }
 
-/* Movie information section styling on search page  */
+/* Movie timeline section styling  */
 .movies-display {
     margin: 10px 5px;
     padding: 0 5px;
@@ -155,6 +144,7 @@ a {
     border-radius: 10px;
     background-color: white;
 }
+/* All of the headers in the section */
 .display-header {
     margin: 5px 0 15px 0;
 }
@@ -174,23 +164,19 @@ a {
 
     margin: 0;
 }
-
 .display-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-/* Movie display section styling by decade  */
 .exit-btn {
     cursor: pointer;
 }
-
+/* Timeline movie individual movie item styling */
 .list-movie-poster {
     width: 100px;
     border-radius: 5px;
 }
-
 .movie-list-item {
     cursor: pointer;
 
@@ -199,7 +185,6 @@ a {
     
     margin-bottom: 5px;
 }
-
 .movie-list-item-info {
     margin-left: 10px;
 }
@@ -212,6 +197,7 @@ a {
 .movie-list-item p {
     font-size: 14px;
 }
+/* Styling for the imdb and rotten tomatoes rating */
 .rating-div {
     display:flex;
     align-items: center;
@@ -227,6 +213,7 @@ a {
     margin-left: auto;
 }
 
+/* Movie.html styling */
 #default-img {
     margin-top: 100px;
     text-align: center;
@@ -238,7 +225,6 @@ a {
 #default-img img, #error-img img {
     width: 80%;
 }
-
 .out-g {
     margin-top: 10px;
 }
@@ -259,6 +245,7 @@ a {
     font-weight: normal;
 }
 
+/* responsive styling section */
 @media screen and (min-width: 768px) {
     body {
         padding-left: 10%;
