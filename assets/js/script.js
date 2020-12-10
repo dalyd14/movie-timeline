@@ -172,7 +172,7 @@ var populateMovieInfo = function(movieInfo) {
 // This function shows the error message when a user searches for a non existant film
 var populateError = function() {
        
-    $("#default-img").removeClass("d-none")
+    $("#default-img").addClass("d-none")
     $("#error-img").removeClass("d-none")
     $("#movie-display").addClass("d-none")
 }
