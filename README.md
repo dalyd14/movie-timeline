@@ -5,7 +5,7 @@
 ## Timeless Movies was created with the following languages and applications:
  - HTML
  - CSS (Pure CSS)
- - JavaScript (JQuery)
+ - JavaScript (JQuery & moment.js)
 
 ## Server-side APIs Used
  - Wikipedia API: to gather a list of movies for a given year and decade
