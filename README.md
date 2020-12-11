@@ -16,6 +16,6 @@
 [Website](https://dalyd14.github.io/movie-timeline)
 
 ## Screenshots
-![Main Decade Page](./assets/images/main-page.png)
-![Timeline Page](./assets/images/timeline-page.png)
-![Movie Page](./assets/images/movie-page.png)
+![Main Decade Page](./assets/images/main-page.PNG)
+![Timeline Page](./assets/images/timeline-page.PNG)
+![Movie Page](./assets/images/movie-page.PNG)
