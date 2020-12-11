@@ -1,6 +1,21 @@
-# Movie Timeline
+# Timeless Movies Application
 
-## First Part
- - The first part of this tool is an API call to a Wikipedia page that will return the top 10 highest-grossing films of a certain year. 
- - This will be necessary for creating a timeline of the hit movies for that given year. 
- - We will then use this list of ten movies and make a call to OMDB for each movie to get the data for each one.
+ Timeless Movies is an app designed for searching highest grossing films of a given time period as well as individual movie searches. Users can search highest grossing films by decade or selected year. The individual movie search bar provides users with information about the chosen film along with a poster of that film. Film information includes: Title, Genre, Rating, Actors, Director, Release Date, IMDB score, Rotten Tomatoes score, Film length, Plot, and Awards. This site is designed to be easy to use and navigate. 
+
+## Timeless Movies was created with the following languages and applications:
+ - HTML
+ - CSS (Pure CSS)
+ - JavaScript (JQuery)
+
+## Server-side APIs Used
+ - Wikipedia API: to gather a list of movies for a given year and decade
+ - OMDB API: to return information for individual movies
+
+
+## Deployed Website:
+[Website](https://dalyd14.github.io/movie-timeline)
+
+## Screenshots
+![Main Decade Page](./assets/images/main-page.png)
+![Timeline Page](./assets/images/timeline-page.png)
+![Movie Page](./assets/images/movie-page.png)
