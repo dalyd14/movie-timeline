@@ -14,6 +14,36 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Our fav icon -->
     <link rel="icon" type="image/png" href="./assets/images/logo.png"/>
+
+    <script>
+        rudderanalytics = window.rudderanalytics = [];
+        var  methods = [
+          "load",
+          "page",
+          "track",
+          "identify",
+          "alias",
+          "group",
+          "ready",
+          "reset",
+          "getAnonymousId",
+          "setAnonymousId"
+        ];
+        for (var i = 0; i < methods.length; i++) {
+          var method = methods[i];
+          rudderanalytics[method] = function (methodName) {
+            return function () {
+                  rudderanalytics.push([methodName].concat(Array.prototype.slice.call(arguments)));
+            };
+          }(method);
+        }
+        rudderanalytics.load('1s2DvkphV5KBlRgc5HbyVz7LFzR', 'http://localhost:8080');
+        //For example,
+        //rudderanalytics.load("1Qb1F3jSWv0eKFBPZcrM7ypgjVo", "http://localhost:8080");
+    </script>
+
+    <script src="https://cdn.rudderlabs.com/v1/rudder-analytics.min.js"></script>
+
     <title>Movie Timeline</title>
 </head>
 

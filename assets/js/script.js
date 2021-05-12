@@ -6,6 +6,18 @@ if(currentYear>=2020) {
 
 // When you click a decade button an api call is made
 $("#decade-btns").on("click", ".decade", function(){
+
+    rudderanalytics.track(
+        "decade button pressed",
+        {
+            decade: $(this).attr('id'),
+            category: 'button_pressed',
+            label: 'decade',
+            value: $(this).attr('id')
+        },
+        () => {console.log('tracked decade press')}
+    )
+
     // Returns id of decade button pressed
     var decade = $(this).attr("id")
     async function asyncCallforDecades() {
@@ -17,12 +29,35 @@ $("#decade-btns").on("click", ".decade", function(){
     asyncCallforDecades()
 })
 
+// $("#timeless-hero").click(function() {
+//     rudderanalytics.identify(
+//         "",
+//         { isLoggedIn: false }
+//     )
+// })
+
 // When the year search form is submitted, call this function
 $( "#year-search" ).submit(function( event ) {
     event.preventDefault();
 
     // Get year that was typed into input 
     var searchTerm = $(this).find("input").val()
+
+    // rudderanalytics.identify(
+    //     'dave is here',
+    //     { isLoggedIn: true }
+    // )
+    rudderanalytics.track(
+        "year searched",
+        {
+            year: searchTerm,
+            category: 'search',
+            label: 'year',
+            value: searchTerm
+        },
+        () => {console.log('tracked year searched')}
+    )
+
     // Check if year function ensures that the input is valid
     var resultArr = checkIfYear(searchTerm)
     if (resultArr[0]) {
@@ -203,6 +238,18 @@ $( "#movie-search" ).submit(function( event ) {
     $("#default-img").removeClass("d-none")
     
     var searchTerm = $(this).find("input").val()
+
+    rudderanalytics.track(
+        "movie searched",
+        {
+            movie: searchTerm,
+            category: 'search',
+            label: 'movie',
+            value: searchTerm
+        },
+        () => {console.log('tracked movie searched')}
+    )
+
     window.location = "./movie.html?t=" + searchTerm.trim().split(" ").join("+")     
 });
 
