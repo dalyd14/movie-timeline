@@ -1,0 +1,15 @@
+name: Rudder Transformation Action
+# You may pin to the exact commit or the version.
+# uses: rudderlabs/rudder-transformation-action@7355ce0d2809929ec581b254e9f9c61a41f6c206
+uses: rudderlabs/rudder-transformation-action@1.1.0
+with:
+  # File containing metadata about transformation and libraries
+  metaPath: 
+  # Owner email of the workspace
+  email: 
+  # accessToken generated for a workspace
+  accessToken: 
+  # backend url
+  serverEndpoint: # optional, default is https://api.rudderstack.com
+  # Toggle for enabling artifacts
+  uploadTestArtifact: # optional
